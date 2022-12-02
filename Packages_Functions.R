@@ -218,3 +218,10 @@ Plot_QE <- function(QE_table, MutationColumn, ...){
   return(Plot_list)
   
 }
+                               
+# A function used to identify locations within a table to then modify the properties of those locations ----
+# Function code and the associated modification code found on https://cran.r-project.org/web/packages/gridExtra/vignettes/tableGrob.html
+find_cell <- function(table, row, col, name="core-fg"){
+  l <- table$layout
+  which(l$t==row & l$l==col & l$name==name)
+}
